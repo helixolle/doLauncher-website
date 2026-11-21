@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="doLauncher is a text-based Android launcher with essential apps, floating folders, search, an agenda, task lists and Markdown notes. View screenshots of its features." />
+    <meta name="theme-color" content="#ffffff" />
+    <meta property="og:title" content="doLauncher" />
+    <meta property="og:description" content="A text-based Android launcher with an agenda, task lists and Markdown notes." />
+    <meta property="og:type" content="website" />
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="preload" href="./fonts/geist_regular.ttf" as="font" type="font/ttf" crossorigin />
+    <link rel="stylesheet" href="./src/style.css" />
+    <title>doLauncher</title>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <header class="site-header container">
+      <span class="site-name">doLauncher</span>
+      <a href="https://github.com/helixolle/doLauncher">Source code on GitHub</a>
+    </header>
+
+    <main id="main" class="container">
+      <section class="introduction" aria-labelledby="page-title">
+        <h1 id="page-title">doLauncher</h1>
+        <p>doLauncher is a text-based Android launcher with essential apps, floating folders, search, an agenda, task lists and Markdown notes.</p>
+        <p class="requirement">Requires Android 8.0 or later.</p>
+      </section>
+
+      <section class="feature-row" aria-labelledby="home-title">
+        <div class="feature-copy">
+          <h2 id="home-title">Home screen</h2>
+          <p>Choose which apps appear on Home, rename their labels and arrange them in a text list. The clock and date sit above an agenda with calendar events, the next alarm and scheduled tasks.</p>
+          <p>Text size, alignment and app placement can be adjusted. Light, dark and pure-black themes are available.</p>
+          <p class="detail">The optional step summary requires a supported sensor and permission. Counting is active while the launcher is visible, rather than continuously in the background.</p>
+        </div>
+        <div class="screenshots" aria-label="Home screen examples">
+          <figure>
+            <img src="./screenshots/home-light.png" width="411" height="891" alt="Light-theme Home with a clock, two upcoming agenda entries, essential apps and a step summary" fetchpriority="high" />
+            <figcaption>Light theme</figcaption>
+          </figure>
+          <figure>
+            <img src="./screenshots/home-dark.png" width="411" height="891" alt="The same Home screen and sample content in the dark theme" />
+            <figcaption>Dark theme</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="feature-row" aria-labelledby="folders-title">
+        <div class="feature-copy">
+          <h2 id="folders-title">Floating folders</h2>
+          <p>Group apps under a folder label. Tapping the label opens a floating horizontal row of apps while the rest of Home stays in place.</p>
+          <p>Select an app to launch it, or tap outside the folder to close it.</p>
+        </div>
+        <div class="screenshots" aria-label="Closed and open folder states">
+          <figure>
+            <img src="./screenshots/home-light.png" width="411" height="891" alt="Home with the Reading folder closed at the bottom of the essential app list" loading="lazy" />
+            <figcaption>Folder closed</figcaption>
+          </figure>
+          <figure>
+            <img src="./screenshots/folders-light.png" width="411" height="891" alt="Reading expanded into a floating row containing Books, Articles and Reader over a dimmed Home screen" loading="lazy" />
+            <figcaption>Folder open</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="feature-row" aria-labelledby="search-title">
+        <div class="feature-copy">
+          <h2 id="search-title">Pull-down search</h2>
+          <p>Drag down on Home to open search. Results are grouped into apps, app shortcuts and contacts, and update as the query changes. Swipe up to return to Home.</p>
+          <p>Contact search is optional and requires permission. Call and message actions open the dialer or SMS composer.</p>
+          <p class="detail">The screenshots show an empty search, a query matching several types of result, and a more specific query matching one app.</p>
+        </div>
+        <div class="screenshots three-states" aria-label="Search before and after typing">
+          <figure>
+            <img src="./screenshots/search-empty-light.png" width="411" height="891" alt="Search open above a dimmed Home screen with an empty field and an illustrative keyboard" loading="lazy" />
+            <figcaption>Search opened</figcaption>
+          </figure>
+          <figure>
+            <img src="./screenshots/search-light.png" width="411" height="891" alt="Query ca showing Calendar, Camera, the Scan document shortcut and the sample contact Casey, above an illustrative keyboard" loading="lazy" />
+            <figcaption>Query: “ca”</figcaption>
+          </figure>
+          <figure>
+            <img src="./screenshots/search-camera-light.png" width="411" height="891" alt="Query camera showing only the Camera app above an illustrative keyboard" loading="lazy" />
+            <figcaption>Query: “camera”</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="feature-row" aria-labelledby="tasks-title">
+        <div class="feature-copy">
+          <h2 id="tasks-title">Tasks and routines</h2>
+          <p>The Tasks screen has an Inbox and custom lists. Add and complete tasks, move them between lists, and reorder tasks and lists.</p>
+          <p>Routine lists can reset on a repeating schedule. A task can also have a date and time so it appears in Home’s agenda.</p>
+          <p class="detail">Task dates do not trigger a notification or sound. Repeating resets apply to lists, not individual tasks.</p>
+        </div>
+        <div class="screenshots" aria-label="Task completion states">
+          <figure>
+            <img src="./screenshots/tasks-light.png" width="411" height="891" alt="Tasks screen with three Inbox tasks and a Morning routine list showing one of three tasks completed" loading="lazy" />
+            <figcaption>One routine task completed</figcaption>
+          </figure>
+          <figure>
+            <img src="./screenshots/tasks-completed-light.png" width="411" height="891" alt="The same Tasks screen after Stretch for five minutes is checked, with two of three routine tasks completed" loading="lazy" />
+            <figcaption>Two routine tasks completed</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="feature-row" aria-labelledby="notes-title">
+        <div class="feature-copy">
+          <h2 id="notes-title">Markdown notes</h2>
+          <p>Pull down again from Search to open a note in the same field. The formatting toolbar adds headings, emphasis, lists and checklist markers.</p>
+          <p>Save the note as a .md file in a folder you choose. Closing the editor keeps the unfinished draft for later.</p>
+        </div>
+        <div class="screenshots" aria-label="Plain and Markdown note states">
+          <figure>
+            <img src="./screenshots/notes-plain-light.png" width="411" height="891" alt="Note editor containing two plain-text lines about collecting a library book and planning a walking route, above an illustrative keyboard" loading="lazy" />
+            <figcaption>Plain-text draft</figcaption>
+          </figure>
+          <figure>
+            <img src="./screenshots/notes-light.png" width="411" height="891" alt="The note with a Weekend heading and Markdown list markers, with formatting tools and Save .md above an illustrative keyboard" loading="lazy" />
+            <figcaption>With Markdown formatting</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <aside class="screenshot-note" aria-label="About these screenshots">
+        <p>Screenshots are rendered from the Android interface with sample data, not captured from a device. Search and Notes include an illustrative keyboard, not a keyboard provided by the launcher.</p>
+      </aside>
+    </main>
+
+    <footer class="site-footer container">
+      <span>doLauncher</span>
+      <a href="https://github.com/helixolle/doLauncher">View the project on GitHub</a>
+    </footer>
+  </body>
+</html>

@@ -60,7 +60,7 @@ Hiding an agenda item saves its source, identifier, title, start time and all-da
 
 ### Steps and physical activity
 
-On supported devices, doLauncher reads the step-counter sensor. On Android 10 and later, Physical activity permission is requested only after you choose to enable the feature, not automatically at app startup. You can cancel or deny the request.
+On supported devices, doLauncher reads the step-counter sensor. Starting with version 1.0, build 2, on Android 10 and later Physical activity permission is requested only after you choose to enable the feature, not automatically at app startup. The initial build 1 requested this permission at startup. You can cancel or deny the request.
 
 The app stores a sensor baseline, the current step day and count, your goal and reset time locally. It does not maintain a multi-day fitness history or use Health Connect or Google Fit.
 

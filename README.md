@@ -45,9 +45,10 @@ Deploy `dist/` to a static host. Relative asset paths work under a subdirectory,
 - `npm run build` first renders the policy to `public/privacy/index.html` using
   the dependency-free build-time script, then Vite copies it and its local CSS/fonts
   into `dist/privacy/`. Do not edit the ignored generated HTML.
-- Intended policy URL: `https://helixolle.github.io/doLauncher-website/privacy/`.
-  Treat it as planned until the owner has approved publication and a live HTTPS
-  check has succeeded.
+- Public policy URL: `https://helixolle.github.io/doLauncher-website/privacy/`.
+  The owner approved making this website repository public and deploying it on
+  25 November 2026. Anonymous HTTPS requests to the policy, CSS and fonts were
+  verified to return HTTP 200 and match the tested build. HTTPS is enforced.
 - `tests/privacy.spec.ts` checks all policy text, contact details, accessibility,
   mobile layouts, no script/cookie/external request requirements, and project-subdirectory paths.
 - `.github/workflows/github-pages.yml` is manually dispatched only. A source push
@@ -60,6 +61,8 @@ Deploy `dist/` to a static host. Relative asset paths work under a subdirectory,
   for success, and verify the exact public policy URL without a signed-in session.
 - The page adds no analytics, advertising or tracking. GitHub Pages itself logs
   visitor IP addresses for security; this is disclosed in the policy.
+- The policy distinguishes the original build 1 permission prompt from the
+  contextual step-counter permission flow introduced in build 2.
 
 ## Screenshots
 

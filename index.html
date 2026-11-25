@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="doLauncher is a text-based Android launcher with essential apps, floating folders, search, an agenda, task lists and Markdown notes. View screenshots of its features." />
+    <meta name="description" content="doLauncher is a text-based Android launcher with essential apps, floating folders, search, an agenda, task lists, optional task reminders and Markdown notes. View screenshots of its features." />
     <meta name="theme-color" content="#ffffff" />
     <meta property="og:title" content="doLauncher" />
-    <meta property="og:description" content="A text-based Android launcher with an agenda, task lists and Markdown notes." />
+    <meta property="og:description" content="A text-based Android launcher with an agenda, task lists, optional notification reminders and Markdown notes." />
     <meta property="og:type" content="website" />
-    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="./branding/doLauncher-icon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="./branding/doLauncher-icon.png" />
     <link rel="preload" href="./fonts/geist_regular.ttf" as="font" type="font/ttf" crossorigin />
     <link rel="stylesheet" href="./src/style.css" />
     <title>doLauncher</title>
@@ -16,15 +17,16 @@
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header container">
-      <span class="site-name">doLauncher</span>
-      <a href="https://github.com/helixolle/doLauncher">Source code on GitHub</a>
+      <span class="site-name"><img class="app-icon" src="./branding/doLauncher-icon.png" width="36" height="36" alt="" />doLauncher</span>
+      <span class="store-status">Google Play — coming soon</span>
     </header>
 
     <main id="main" class="container">
       <section class="introduction" aria-labelledby="page-title">
         <h1 id="page-title">doLauncher</h1>
-        <p>doLauncher is a text-based Android launcher with essential apps, floating folders, search, an agenda, task lists and Markdown notes.</p>
+        <p>doLauncher is a text-based Android launcher with essential apps, floating folders, search, an agenda, task lists, optional task reminders and Markdown notes.</p>
         <p class="requirement">Requires Android 8.0 or later.</p>
+        <p class="requirement">Not yet available on Google Play.</p>
       </section>
 
       <section class="feature-row" aria-labelledby="home-title">
@@ -87,30 +89,11 @@
         </div>
       </section>
 
-      <section class="feature-row" aria-labelledby="tasks-title">
-        <div class="feature-copy">
-          <h2 id="tasks-title">Tasks and routines</h2>
-          <p>The Tasks screen has an Inbox and custom lists. Add and complete tasks, move them between lists, and reorder tasks and lists.</p>
-          <p>Routine lists can reset on a repeating schedule. A task can also have a date and time so it appears in Home’s agenda.</p>
-          <p class="detail">Task dates do not trigger a notification or sound. Repeating resets apply to lists, not individual tasks.</p>
-        </div>
-        <div class="screenshots" aria-label="Task completion states">
-          <figure>
-            <img src="./screenshots/tasks-light.png" width="411" height="891" alt="Tasks screen with three Inbox tasks and a Morning routine list showing one of three tasks completed" loading="lazy" />
-            <figcaption>One routine task completed</figcaption>
-          </figure>
-          <figure>
-            <img src="./screenshots/tasks-completed-light.png" width="411" height="891" alt="The same Tasks screen after Stretch for five minutes is checked, with two of three routine tasks completed" loading="lazy" />
-            <figcaption>Two routine tasks completed</figcaption>
-          </figure>
-        </div>
-      </section>
-
       <section class="feature-row" aria-labelledby="notes-title">
         <div class="feature-copy">
           <h2 id="notes-title">Markdown notes</h2>
           <p>Pull down again from Search to open a note in the same field. The formatting toolbar adds headings, emphasis, lists and checklist markers.</p>
-          <p>Save the note as a .md file in a folder you choose. Closing the editor keeps the unfinished draft for later.</p>
+          <p>Save the note as a .md file in a folder you choose. Swipe up to return to Search, then swipe up again to return to Home. Closing the editor keeps the unfinished draft for later.</p>
         </div>
         <div class="screenshots" aria-label="Plain and Markdown note states">
           <figure>
@@ -124,6 +107,49 @@
         </div>
       </section>
 
+      <section class="feature-row" aria-labelledby="tasks-title">
+        <div class="feature-copy">
+          <h2 id="tasks-title">Tasks and routines</h2>
+          <p>The Tasks screen has an Inbox and custom lists. Add and complete tasks, move them between lists, and reorder tasks and lists.</p>
+          <p>Routine lists can reset on a repeating schedule. A task can also have a date and time so it appears in Home’s agenda, with an optional notification reminder.</p>
+          <p class="detail">Repeating resets apply to lists, not individual tasks.</p>
+        </div>
+        <div class="screenshots" aria-label="Task completion states">
+          <figure>
+            <img src="./screenshots/tasks-light.png" width="411" height="891" alt="Tasks screen with three Inbox tasks and a Morning routine list showing one of three tasks completed" loading="lazy" />
+            <figcaption>One routine task completed</figcaption>
+          </figure>
+          <figure>
+            <img src="./screenshots/tasks-completed-light.png" width="411" height="891" alt="The same Tasks screen after Stretch for five minutes is checked, with two of three routine tasks completed" loading="lazy" />
+            <figcaption>Two routine tasks completed</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="feature-row" aria-labelledby="reminders-title">
+        <div class="feature-copy">
+          <h2 id="reminders-title">Task reminders</h2>
+          <p>When adding a task to the agenda, enable <strong>Notify me</strong> to receive a notification at the scheduled time. Leave it off to keep the task in the agenda without an alert.</p>
+          <p>The notification includes <strong>Done</strong> to complete the task and remove it from the agenda, and <strong>Remind again</strong> to snooze the notification without changing the agenda date.</p>
+          <p>The snooze duration is set in Notes &amp; tasks. It defaults to 10 minutes, with 5, 15, 30 and 60 minutes also available.</p>
+          <p class="detail">Reminders are local. Notifications must be allowed; Android 13 and later asks for permission when you opt in. Delivery uses inexact alarms and may be delayed by Android’s battery optimization.</p>
+        </div>
+        <div class="screenshots three-states" aria-label="Optional task notification and snooze settings">
+          <figure>
+            <img src="./screenshots/reminder-off-light.png" width="411" height="891" alt="Task scheduling editor for Water the plants with a date and time selected and Notify me turned off" loading="lazy" />
+            <figcaption>Agenda without an alert</figcaption>
+          </figure>
+          <figure>
+            <img src="./screenshots/reminder-on-light.png" width="411" height="891" alt="The same task scheduling editor with Notify me turned on" loading="lazy" />
+            <figcaption>Notify me enabled</figcaption>
+          </figure>
+          <figure>
+            <img src="./screenshots/reminder-settings-light.png" width="411" height="891" alt="Notes and tasks settings with notification settings and snooze choices of 5, 10, 15, 30 and 60 minutes, with 10 minutes selected" loading="lazy" />
+            <figcaption>Snooze: 10 minutes</figcaption>
+          </figure>
+        </div>
+      </section>
+
       <aside class="screenshot-note" aria-label="About these screenshots">
         <p>Screenshots are rendered from the Android interface with sample data, not captured from a device. Search and Notes include an illustrative keyboard, not a keyboard provided by the launcher.</p>
       </aside>
@@ -131,7 +157,8 @@
 
     <footer class="site-footer container">
       <span>doLauncher</span>
-      <a href="https://github.com/helixolle/doLauncher">View the project on GitHub</a>
+      <a href="./privacy/">Privacy Policy</a>
+      <span class="store-status">Google Play — coming soon</span>
     </footer>
   </body>
 </html>

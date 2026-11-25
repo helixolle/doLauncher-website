@@ -35,8 +35,10 @@ img { display: block; max-width: 100%; height: auto; }
 .container { width: min(1160px, calc(100% - 96px)); margin-inline: auto; }
 .site-header, .site-footer { display: flex; justify-content: space-between; align-items: center; gap: 24px; }
 .site-header { min-height: 100px; border-bottom: 1px solid var(--border); }
-.site-name { font-size: 21px; font-weight: 500; letter-spacing: -.6px; }
+.site-name { display: inline-flex; align-items: center; gap: 10px; font-size: 21px; font-weight: 500; letter-spacing: -.6px; }
+.app-icon { width: 36px; height: 36px; flex-shrink: 0; border-radius: 8px; }
 .site-header a, .site-footer a { font-size: 14px; }
+.store-status { color: var(--muted); font-size: 14px; text-align: right; }
 .skip-link { position: absolute; top: 12px; left: 12px; padding: 8px 12px; background: #fff; transform: translateY(-200%); }
 .skip-link:focus { transform: none; }
 
@@ -97,7 +99,9 @@ figcaption { color: var(--muted); font-size: 12px; line-height: 1.55; margin-top
 @media (max-width: 480px) {
   .container { width: calc(100% - 40px); }
   .site-name { font-size: 19px; }
+  .app-icon { width: 28px; height: 28px; border-radius: 6px; }
   .site-header a { font-size: 12px; }
+  .site-header .store-status { font-size: 12px; }
   h1 { font-size: 44px; letter-spacing: -1.8px; }
   h2 { font-size: 26px; }
   .introduction { padding-block: 42px; }

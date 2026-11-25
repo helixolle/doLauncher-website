@@ -1,7 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 
-const features = ['Home screen', 'Floating folders', 'Pull-down search', 'Tasks and routines', 'Markdown notes'];
+const features = ['Home screen', 'Floating folders', 'Pull-down search', 'Markdown notes', 'Tasks and routines', 'Task reminders'];
 
 for (const viewport of [{ width: 1440, height: 1050 }, { width: 390, height: 844 }, { width: 320, height: 700 }]) {
   test.describe(`${viewport.width}px static layout`, () => {
@@ -15,13 +15,14 @@ for (const viewport of [{ width: 1440, height: 1050 }, { width: 390, height: 844
       await page.goto('/');
       await expect(page.getByRole('heading', { level: 1 })).toHaveText('doLauncher');
       await expect(page.getByRole('heading', { level: 2 })).toHaveText(features);
-      await expect(page.locator('figure')).toHaveCount(11);
-      for (const image of await page.getByRole('img').all()) {
+      await expect(page.locator('figure')).toHaveCount(14);
+      for (const image of await page.locator('figure img').all()) {
         await image.scrollIntoViewIfNeeded();
         await expect.poll(() => image.evaluate((element: HTMLImageElement) => ({ width: element.naturalWidth, height: element.naturalHeight })))
           .toEqual({ width: 411, height: 891 });
         await expect(image).toHaveAttribute('alt', /\S/);
       }
+      await expect.poll(() => page.locator('.app-icon').evaluate((element: HTMLImageElement) => element.naturalWidth)).toBe(512);
       expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
       expect(failures).toEqual([]);
       expect(scripts).toEqual([]);
@@ -66,7 +67,29 @@ test('state changes are shown as separate labeled screenshots', async ({ page })
   await expect(tasks.locator('img').nth(1)).toHaveAttribute('src', './screenshots/tasks-completed-light.png');
   const notes = page.locator('section').filter({ has: page.getByRole('heading', { name: 'Markdown notes', exact: true }) });
   await expect(notes.locator('figcaption')).toHaveText(['Plain-text draft', 'With Markdown formatting']);
+  const reminders = page.locator('section').filter({ has: page.getByRole('heading', { name: 'Task reminders', exact: true }) });
+  await expect(reminders.locator('figcaption')).toHaveText(['Agenda without an alert', 'Notify me enabled', 'Snooze: 10 minutes']);
+  await expect(reminders).toContainText('Done');
+  await expect(reminders).toContainText('Remind again');
+  await expect(reminders).toContainText('battery optimization');
+  await expect(page.locator('main')).not.toContainText('Task dates do not trigger a notification or sound');
   await expect(page.getByRole('complementary')).toContainText('illustrative keyboard');
+});
+
+test('branding uses the new app icon without renaming the product', async ({ page }) => {
+  await page.goto('/');
+  await expect(page).toHaveTitle('doLauncher');
+  await expect(page.locator('.site-name')).toHaveText('doLauncher');
+  await expect(page.locator('.app-icon')).toHaveAttribute('src', './branding/doLauncher-icon.png');
+  await expect(page.locator('link[rel="icon"]')).toHaveAttribute('href', './branding/doLauncher-icon.png');
+});
+
+test('source links are removed and Google Play is clearly marked as not yet available', async ({ page }) => {
+  await page.goto('/');
+  await expect(page.locator('a[href*="github.com"]')).toHaveCount(0);
+  await expect(page.locator('a[href*="play.google.com/store/apps/details"]')).toHaveCount(0);
+  await expect(page.locator('.store-status')).toHaveText(['Google Play — coming soon', 'Google Play — coming soon']);
+  await expect(page.locator('.introduction')).toContainText('Not yet available on Google Play.');
 });
 
 test('the page remains static when the operating system theme changes', async ({ page }) => {
